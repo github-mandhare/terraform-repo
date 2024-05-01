@@ -19,7 +19,7 @@ jobs:
         
     steps:
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@v2
 
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
@@ -28,7 +28,7 @@ jobs:
         terraform_wrapper: false
 
     - name: Terraform Init
-      run: terraform init
+      run: terraform init -reconfigure
 
     - name: Terraform plan
       run: terraform plan -no-color
